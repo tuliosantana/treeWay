@@ -1,5 +1,7 @@
 package aula08;
 
+import aula07.Conta;
+
 public class Cliente extends Pessoa{
 	
 	private String cpf;
@@ -33,4 +35,5 @@ public class Cliente extends Pessoa{
 			
 			this.cpf = cpf;
 		}
+	
 }

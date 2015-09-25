@@ -1,13 +1,17 @@
 package aula08;
 
-public class Pessoa {
+import aula09.EntidadeBanco;
+
+public class Pessoa extends EntidadeBanco{
 	
+	private Long identificador;
 	private String nome;
 	private String endereco;
 	private String telefone;
 		
 		public Pessoa(){}
 	
+
 	public Pessoa(String nome){
 		this.nome = nome;
 	}
@@ -39,8 +43,6 @@ public class Pessoa {
 	public void ImprimeNome(){
 	System.out.println("O nome da pessoa e : " + nome);
 	}
-	
-	private Long identificador;
 	
 	public Long getIdentificador(){
 		return identificador;

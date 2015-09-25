@@ -1,13 +1,23 @@
 package aula07;
+import java.beans.FeatureDescriptor;
 import java.util.*;
 
-public class Conta {
+import aula08.Cliente;
+import aula08.Objeto;
+import aula09.EntidadeBanco;
+import aula12.Agencia;
+import aula07.Transacao;
+
+public class Conta extends EntidadeBanco {
 		
+	private Long identificador;
 	private int numero;
-	private String titular;
+	private Cliente titular;
 	private double saldo;
 	private Date dataAbertura;
 	private ArrayList movimento;
+	private Collection<Transacao> transacoes;
+	private Agencia agencia;
 	
 	public int getNumero() {
 		return numero;
@@ -19,18 +29,18 @@ public class Conta {
 	}
 	
 	//construtor com dois parametros
-	public Conta (String nome, int nconta){
+	public Conta (Cliente nome, int nconta){
 		this();
 		numero  = nconta;
 		titular = nome;
 		saldo   = 0.0; //conta em reais e zerada
 	}
 
-	public String getTitular() {
+	public Cliente getTitular() {
 		return titular;
 	}
 
-	public void setTitular(String titular) {
+	public void setTitular(Cliente titular) {
 		this.titular = titular;
 	}
 
@@ -62,7 +72,6 @@ public class Conta {
 		this.numero = numero;
 	}
 	
-    private Long identificador;
 	
 	public Long getIdentificador(){
 		return identificador;
@@ -72,6 +81,27 @@ public class Conta {
 		this.identificador = identificador;
 	}
 	
+	//testa a igualdade de um objeto com este
+	@Override
+	public boolean equals(Object objeto){
+		
+		boolean resultado = false;
+		if (( objeto != null) && ( objeto instanceof Conta)){
+			Conta c = (Conta) objeto;
+			if (getNumero() == c.getNumero()){
+				resultado = true;
+			}
+		}
+		return resultado;
+	}
+	@Override
+	public int hashCode(){
+		return getNumero();
+	}
+	@Override
+	public String toString(){
+		return getNumero() + "-" + getTitular().getNome();
+	}
 	
 	
 }
