@@ -9,10 +9,15 @@ public class TesteHashSet {
 		
 		HashSet<Cliente> clientes = new HashSet<Cliente>();
 		clientes.add(new Cliente("Jesus"));
+		//duplicado
 		clientes.add(new Cliente("Jesus"));
 		clientes.add(new Cliente("Mateus"));
 		clientes.add(new Cliente("Maria"));
-
+		//duplicado
+		clientes.add(new Cliente("Paulo"));
+		clientes.add(new Cliente("João"));
+		
+		System.out.println(clientes);
 	}
 
 }
